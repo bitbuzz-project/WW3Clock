@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import '../models/threat_data.dart';
-import '../services/improved_threat_calculator.dart'; // Updated import
+import '../services/threat_calculator.dart'; // Updated import
 import '../services/news_api_service.dart';
 
 class ThreatProvider extends ChangeNotifier {
@@ -22,7 +22,8 @@ class ThreatProvider extends ChangeNotifier {
       final newsItems = await NewsApiService.fetchAllNews();
       
       // Calculate threat level using improved calculator
-      _currentThreatData = ImprovedThreatCalculator.calculateThreatLevel(newsItems);
+     _currentThreatData = await AIThreatCalculator.calculateThreatLevel(newsItems);
+
       
     } catch (e) {
       _error = e.toString();
