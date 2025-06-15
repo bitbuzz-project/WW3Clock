@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import '../models/threat_data.dart';
-import '../services/threat_calculator.dart';
+import '../services/improved_threat_calculator.dart'; // Updated import
 import '../services/news_api_service.dart';
 
 class ThreatProvider extends ChangeNotifier {
@@ -21,8 +21,8 @@ class ThreatProvider extends ChangeNotifier {
       // Fetch latest news
       final newsItems = await NewsApiService.fetchAllNews();
       
-      // Calculate threat level based on news
-      _currentThreatData = ThreatCalculator.calculateThreatLevel(newsItems);
+      // Calculate threat level using improved calculator
+      _currentThreatData = ImprovedThreatCalculator.calculateThreatLevel(newsItems);
       
     } catch (e) {
       _error = e.toString();
@@ -30,10 +30,12 @@ class ThreatProvider extends ChangeNotifier {
       
       // Fallback to default data if API fails
       _currentThreatData = ThreatData(
-        threatLevel: 30.0,
+        threatLevel: 25.0, // Updated default level
         timestamp: DateTime.now(),
         primaryThreat: 'Monitoring (API Error)',
-        regionalScores: {},
+        regionalScores: {
+          'Global': 25.0,
+        },
         keyFactors: ['Check connection'],
       );
     } finally {
@@ -42,15 +44,15 @@ class ThreatProvider extends ChangeNotifier {
     }
   }
 
-  // Get threat level description
+  // Get threat level description with updated thresholds
   String get threatLevelDescription {
     if (_currentThreatData == null) return 'Unknown';
     
     final level = _currentThreatData!.threatLevel;
-    if (level < 30) return 'Low Threat';
-    if (level < 50) return 'Moderate Threat';
-    if (level < 70) return 'High Threat';
-    if (level < 85) return 'Severe Threat';
+    if (level < 25) return 'Low Threat';
+    if (level < 40) return 'Moderate Threat';
+    if (level < 60) return 'High Threat';
+    if (level < 75) return 'Severe Threat';
     return 'Critical Threat';
   }
 }
