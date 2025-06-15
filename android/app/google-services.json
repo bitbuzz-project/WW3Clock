@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "192415628608",
+    "project_id": "ww3-clock",
+    "storage_bucket": "ww3-clock.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192415628608:android:93ff54dc7d7f4945344ea5",
+        "android_client_info": {
+          "package_name": "com.example.ww3_clock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChAqSrk0ITaF28-iPApMD2lpwVtAUZFoU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
