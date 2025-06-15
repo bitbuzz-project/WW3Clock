@@ -11,32 +11,32 @@ dependencies:
   flutter:
     sdk: flutter
   
-  # Firebase
-  firebase_core: ^2.24.2
-  cloud_firestore: ^4.13.6
-  firebase_auth: ^4.15.3
+  # Firebase - Updated versions for Windows compatibility
+  firebase_core: ^2.32.0
+  cloud_firestore: ^4.17.5
+  # Remove firebase_auth for now due to Windows build issues
+  # firebase_auth: ^4.15.3
   
   # HTTP & API
   http: ^1.1.0
-  dio: ^5.4.0  # Alternative to http, better for complex APIs
+  dio: ^5.4.0
   
   # State Management
   provider: ^6.1.1
   
   # UI & Charts
-  fl_chart: ^0.66.0  # Beautiful charts
-  gauge_indicator: ^0.4.3  # Gauge widget for threat level
+  fl_chart: ^0.66.0
+  gauge_indicator: ^0.4.3
   
   # Maps
   flutter_map: ^6.1.0
   latlong2: ^0.9.0
-
   
   # Utilities
-  intl: ^0.19.0  # Date formatting
-  shared_preferences: ^2.2.2  # Local storage
-  cached_network_image: ^3.3.0  # Image caching
-  url_launcher: ^6.2.2  # Open URLs
+  intl: ^0.19.0
+  shared_preferences: ^2.2.2
+  cached_network_image: ^3.3.0
+  url_launcher: ^6.2.2
   
   # Icons
   cupertino_icons: ^1.0.2
